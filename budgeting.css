@@ -1,0 +1,53 @@
+/* I know it's was not asked in the task but I still wanted to do it*/
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#mainFrame {
+    background-color: beige;
+    text-align: center;
+    align-items: center;
+    border-style: double;
+    border-radius: 8px;
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+button {
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-style: italic;
+}
+
+.result {
+    background-color: white;
+    border-style: double;
+    border-radius: 8px;
+    width: max-content;
+    margin: auto;
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#result {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+hr {
+    width: 90%;
+    margin: 0 auto;
+}

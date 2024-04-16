@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculate your budget</title>
+        <link rel="stylesheet" href="./budgeting.css" />
+    </head>
+    <body>
+        <div id="mainFrame">
+            <h1>Let's calculate your budget!</h1>
+            <hr />
+            <h3>Your incomes:</h3>
+            <p>Add and remove your entries to see your disposable income changing at the bottom.</p>
+            <p>(These are just examples!)</p>
+            <div>
+                <table class="center" id="incomesTable" border="1|1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Recurrancy</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div>
+                <button id="incomesTableButton">Add new income</button>
+                <button id="removeIncomesButton">Remove income</button>
+            </div>
+            <hr />
+            <h3>Your expenses:</h3>
+            <div>
+                <table class="center" id="expensesTable" border="1|1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Recurrancy</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div>
+                <button id="expensesTableButton">Add new expense</button>
+                <button id="removeExpensesButton">Remove expense</button>
+            </div>
+            <hr />
+            <div class="result">
+                <h4>Check below your disposable income:</h4>
+                <p id="result"></p>
+            </div>
+            <hr />
+            <h4>Press this button below to calculate what's left after your savings.</h4>
+            <button id="disposableIncomeLeft">Calculate!</button>
+        </div>
+        <script type="text/javascript" src="./budgeting.js"></script>
+    </body>
+</html>
