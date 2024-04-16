@@ -66,39 +66,39 @@ if (!expenses) {
 }
 // Creating a function to create a table to display in a nice way the incomes and see the modifications in real time
 function displayIncomes() {
-    let table = document.getElementById("incomesTable");
-    let tbody = table.getElementsByTagName("tbody")[0];
+    const table = document.getElementById("incomesTable");
+    const tbody = table.getElementsByTagName("tbody")[0];
     tbody.innerHTML = "";
     for (let i = 0; i < incomes.length; i++) {
-        let newRow = tbody.insertRow();
-        let nameCell = newRow.insertCell(0);
+        const newRow = tbody.insertRow();
+        const nameCell = newRow.insertCell(0);
         nameCell.innerHTML = incomes[i].name;
-        let amountCell = newRow.insertCell(1);
+        const amountCell = newRow.insertCell(1);
         amountCell.innerHTML = incomes[i].amount;
-        let recurrancyCell = newRow.insertCell(2);
+        const recurrancyCell = newRow.insertCell(2);
         recurrancyCell.innerHTML = incomes[i].recurrancy ? "Yes" : "No";
     }
 }
 // Creating a function to create a table to display in a nice way the expenses and see the modifications in real time
 function displayExpenses() {
-    let table = document.getElementById("expensesTable");
-    let tbody = table.getElementsByTagName("tbody")[0];
+    const table = document.getElementById("expensesTable");
+    const tbody = table.getElementsByTagName("tbody")[0];
     tbody.innerHTML = "";
     for (let i = 0; i < expenses.length; i++) {
-        let newRow = tbody.insertRow();
-        let nameCell = newRow.insertCell(0);
+        const newRow = tbody.insertRow();
+        const nameCell = newRow.insertCell(0);
         nameCell.innerHTML = expenses[i].name;
-        let amountCell = newRow.insertCell(1);
+        const amountCell = newRow.insertCell(1);
         amountCell.innerHTML = expenses[i].amount;
-        let recurrancyCell = newRow.insertCell(2);
+        const recurrancyCell = newRow.insertCell(2);
         recurrancyCell.innerHTML = expenses[i].recurrancy ? "Yes" : "No";
     }
 }
 // Creating a function to be able to add entries to the incomes and saved in the session storage
 function addEntryIncomes() {
-    let newName = prompt("Enter the name of the new income:");
-    let newAmount = parseFloat(prompt("Enter the amount of the new income:"));
-    let newRecurring = confirm("Is this income recurring?");
+    const newName = prompt("Enter the name of the new income:");
+    const newAmount = parseFloat(prompt("Enter the amount of the new income:"));
+    const newRecurring = confirm("Is this income recurring?");
     incomes.push({ name: newName, amount: newAmount, recurrancy: newRecurring });
     sessionStorage.setItem("incomes", JSON.stringify(incomes));
     displayIncomes();
@@ -106,8 +106,8 @@ function addEntryIncomes() {
 }
 // Creating a function to be able to remove entries from the incomes and saved in the session storage
 function removeEntryIncomes() {
-    let incomeName = prompt("Enter the entry you want to remove:");
-    let remainingItems = incomes.filter((income) => {
+    const incomeName = prompt("Enter the entry you want to remove:");
+    const remainingItems = incomes.filter((income) => {
         return income.name !== incomeName;
     });
     incomes = remainingItems;
@@ -117,9 +117,9 @@ function removeEntryIncomes() {
 }
 // Creating a function to be able to add entries to the expenses and saved in the session storage
 function addEntryExpenses() {
-    let newName = prompt("Enter the name of the new expense:");
-    let newAmount = parseFloat(prompt("Enter the amount of the new expense:"));
-    let newRecurring = confirm("Is this expense recurring?");
+    const newName = prompt("Enter the name of the new expense:");
+    const newAmount = parseFloat(prompt("Enter the amount of the new expense:"));
+    const newRecurring = confirm("Is this expense recurring?");
     expenses.push({ name: newName, amount: newAmount, recurrancy: newRecurring });
     sessionStorage.setItem("expenses", JSON.stringify(expenses));
     displayExpenses();
@@ -127,8 +127,8 @@ function addEntryExpenses() {
 }
 // Creating a function to be able to remove entries from the expenses and saved in the session storage
 function removeEntryExpenses() {
-    let expenseName = prompt("Enter the entry you want to remove:");
-    let remainingItems = expenses.filter((expense) => {
+    const expenseName = prompt("Enter the entry you want to remove:");
+    const remainingItems = expenses.filter((expense) => {
         return expense.name !== expenseName;
     });
     expenses = remainingItems;
@@ -138,16 +138,16 @@ function removeEntryExpenses() {
 }
 // Function to display the disposable income
 function displayDisposableIncome() {
-    let disposableIncome = calculateDisposableIncome();
+    const disposableIncome = calculateDisposableIncome();
     document.getElementById("result").innerHTML = disposableIncome;
 }
 
 // Calculate disposable income: incomes - expenses
 function calculateDisposableIncome() {
-    let totalIncome = incomes.reduce((total, currentItem) => {
+    const totalIncome = incomes.reduce((total, currentItem) => {
         return total + currentItem.amount;
     }, 0);
-    let totalExpense = expenses.reduce((total, currentItem) => {
+    const totalExpense = expenses.reduce((total, currentItem) => {
         return total + currentItem.amount;
     }, 0);
 
@@ -156,9 +156,9 @@ function calculateDisposableIncome() {
 
 // Calculate remaining disposable income after savings input from user
 function calculateDisposableIncomeLeft() {
-    let disposableIncome = calculateDisposableIncome();
-    let savings = parseFloat(prompt("How much of your disposable income would you like to put into savings?"));
-    let remainingDisposableIncome = disposableIncome - savings;
+    const disposableIncome = calculateDisposableIncome();
+    const savings = parseFloat(prompt("How much of your disposable income would you like to put into savings?"));
+    const remainingDisposableIncome = disposableIncome - savings;
     alert("Total disposable income remaining: " + remainingDisposableIncome);
 }
 
@@ -168,21 +168,21 @@ displayExpenses();
 displayDisposableIncome();
 
 // Event handling for Incomes Table's buttons adding new entries
-let incomesTable = document.getElementById("incomesTableButton");
+const incomesTable = document.getElementById("incomesTableButton");
 incomesTable.addEventListener("click", addEntryIncomes);
 
 // Event handling for Incomes Table's buttons removing new entries
-let removeIncomes = document.getElementById("removeIncomesButton");
+const removeIncomes = document.getElementById("removeIncomesButton");
 removeIncomes.addEventListener("click", removeEntryIncomes);
 
 // Event handling for Expense Table's buttons adding new entries
-let expenseTable = document.getElementById("expensesTableButton");
+const expenseTable = document.getElementById("expensesTableButton");
 expenseTable.addEventListener("click", addEntryExpenses);
 
 // Event handling for Expense Table's buttons removing entries
-let removeExpenses = document.getElementById("removeExpensesButton");
+const removeExpenses = document.getElementById("removeExpensesButton");
 removeExpenses.addEventListener("click", removeEntryExpenses);
 
 // Event handling for the calculate button, to let the user know what's left after removing the chosen amount into the savings
-let finalcalculation = document.getElementById("disposableIncomeLeft");
+const finalcalculation = document.getElementById("disposableIncomeLeft");
 finalcalculation.addEventListener("click", calculateDisposableIncomeLeft);
